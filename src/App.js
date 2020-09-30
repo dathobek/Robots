@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import CardList from './cardlist';
 import SearchBox from './searchBox';
-
+import Scroll from './scroll';
 
 
 
@@ -37,7 +37,9 @@ onSearchChange = (event)=>{
                 <div className='tc'>
                     <h1>Robo Friends</h1>
                     <SearchBox searchChange={this.onSearchChange}/>
-                    <CardList robots={filteredRobots}/>
+                    <Scroll>
+                      <CardList robots={filteredRobots}/>
+                    </Scroll>
                 </div>   
             );
         }
