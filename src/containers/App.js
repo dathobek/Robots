@@ -3,6 +3,7 @@ import CardList from '../components/cardlist';
 import SearchBox from '../components/searchBox';
 import Scroll from '../components/scroll';
 import ErrorBoundry from '../components/errorBoundry';
+import Loader from 'react-loader-spinner';
 
 class App extends Component {
 constructor(){
@@ -28,7 +29,12 @@ onSearchChange = (event)=>{
             return robot.name.toLowerCase().includes(searchField.toLowerCase())
         })
         if(!robots.length) {
-           return <h1>LOADING</h1>
+           return (
+              <div style = {{display: "flex" ,marginTop: "20%",justifyContent:"center" , alignItems: "center"}}>
+                  <Loader type="ThreeDots" color="green" height="100" width="100" />
+              </div>
+           )
+           
         } else {
             return(
                 <div className='tc'>
